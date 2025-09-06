@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Computer Science Graduate at FAST-NUCES with a strong interest in software engineering, particularly in AI/ML and backend development." />
+    <meta property="og:title" content="Zaki Qasim – Portfolio" />
+    <meta property="og:description"
+        content="Computer Science Graduate at FAST-NUCES with a strong interest in software engineering, particularly in AI/ML and backend development." />
+    <meta property="og:type" content="website" />
+
+    <!-- ----------------------UNICONS---------------------- -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css" />
+
+    <!-- ----------------------SWIPER CSS---------------------- -->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+
+    <!-- ----------------------CSS---------------------- -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="./assets/img/zq-icon.png" type="image/x-icon" />
+
+    <title>Zaki Qasim</title>
+
+    <!-- Inline tweaks we made together (home layout + mobile rules) -->
+    <style>
+        /* Home: two-column grid (social left, text right), no picture */
+        .home__container {
+            min-height: auto !important;
+            display: grid;
+            row-gap: 0.5rem !important;
+        }
+
+        .home__content {
+            display: grid;
+            grid-template-columns: max-content 1fr;
+            /* narrow left column for icons */
+            align-items: center;
+            column-gap: 0rem;
+            width: 100%;
+        }
+
+        .home__social {
+            display: grid;
+            justify-items: start;
+            row-gap: 1rem;
+        }
+
+        .home__social-icon {
+            font-size: 1.25rem;
+        }
+
+        .home__data {
+            max-width: 760px;
+            justify-self: center;
+            text-align: center;
+            transform: translateX(-1.5%); /* adjust % for how far left */
+        }
+
+        .home__scroll {
+            
+
+            display: flex;
+            justify-content: center;
+            margin-top: 10rem !important;
+            transform: translateX(-3.5%); /* adjust % for how far left */
+           
+        }
+
+        
+
+
+
+        .home.section {
+            padding-bottom: 1.25rem !important;
+        }
+
+
+        /* Reusable responsive media box (matches image look) */
+        .video-container,
+        .portfolio__media {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;       /* modern browsers keep it perfectly */
+        border-radius: 0.75rem;      /* match your image rounding if any */
+        overflow: hidden;
+        }
+
+        .video-container iframe,
+        .portfolio__media iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        }
+
+        /* Fallback for very old browsers without aspect-ratio */
+        @supports not (aspect-ratio: 1 / 1) {
+        .video-container,
+            .portfolio__media {
+                height: 0;
+                padding-top: 56.25%; /* 16:9 */
+            }
+            .video-container iframe,
+            .portfolio__media iframe {
+                position: absolute;
+                top: 0; left: 0; right: 0; bottom: 0;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .home__content {
+                grid-template-columns: 1fr;
+                row-gap: 1.25rem;
+            }
+
+            .home__social {
+                justify-items: start;
+                grid-auto-flow: column;
+                column-gap: 1rem;
+            }
+
+            .home__data {
+                justify-self: start;
+                text-align: left;
+            }
+
+            .home__scroll {
+                display: none;
+            }
+
+            /* hide scroll button on mobile */
+        }
+
+        /* Typewriter */
+        .cursor {
+            display: inline-block;
+            width: 0.6ch;
+            border-right: 2px solid currentColor;
+            margin-left: 1px;
+            animation: blink 1s step-end infinite;
+        }
+
+        /* Let the typed text wrap naturally */
+        #typewriter { white-space: pre-wrap; }
+
+        @keyframes blink { 
+            50% { border-color: transparent; } 
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .cursor { display: none; animation: none; }
+        }
+
+    </style>
+</head>
+
+
+
+<body>
+    <!-- --------------------------HEADER------------------------- -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">Zaki</a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list grid">
+                    <li class="nav__item"><a href="#home" class="nav__link active-link"><i
+                                class="uil uil-estate nav__icon"></i> Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link"><i class="uil uil-user nav__icon"></i>
+                            About</a></li>
+                    <li class="nav__item"><a href="#portfolio" class="nav__link"><i
+                                class="uil uil-scenery nav__icon"></i> Projects</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link"><i class="uil uil-message nav__icon"></i>
+                            Contact Me</a></li>
+                </ul>
+                <i class="uil uil-times nav__close" id="nav-close"></i>
+            </div>
+            <div class="nav__btns">
+                <!-- Theme change button  -->
+                <i class="uil uil-moon change-theme" id="theme-button"></i>
+                <div class="nav__toggle" id="nav-toggle"><i class="uil uil-apps"></i></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- --------------------------MAIN------------------------- -->
+    <main class="main">
+        <!-----------------------HOME------------------------>
+        <section class="home section" id="home">
+            <div class="home__container container">
+                <div class="home__content">
+                    <!-- Left column: social icons -->
+                    <div class="home__social">
+                        <a href="https://www.linkedin.com/in/zakiqasim" target="_blank" class="home__social-icon"
+                            aria-label="LinkedIn"><i class="uil uil-linkedin-alt"></i></a>
+                        <a href="https://github.com/zakiqasim100" target="_blank" class="home__social-icon"
+                            aria-label="GitHub"><i class="uil uil-github-alt"></i></a>
+                    </div>
+                    <!-- Right column: centered text block (desktop), left on mobile -->
+                    <div class="home__data">
+                        <h1 class="home__title">Hi, I'm Zaki</h1>
+                        <!-- <h3 class="home__subtitle">Software Engineer and Machine Learning enthusiast</h3> -->
+                        <!-- <p class="home__description typewriter" id="typewriter">
+                            Computer Science Graduate at FAST-NUCES. I have a strong interest in
+                            software engineering, particularly in AI/ML and backend development.
+                            <span class="cursor" aria-hidden="true"></span>
+                        </p> -->
+                        <p class="home__description">
+                            <span id="typewriter"></span><span class="cursor" aria-hidden="true"></span>
+                        </p>
+
+
+                        <a href="assets/Zaki_Qasim_resume.pdf" class="button button--flex" target="_blank"
+                            rel="noopener">Resume <i class="uil uil-message button__icon"></i></a>
+                    </div>
+                </div>
+                <div class="home__scroll">
+                    <a href="#about" class="home__scroll-button button--flex">
+                        <i class="uil uil-mouse-alt home__scroll-mouse"></i>
+                        <span class="home__scroll-name">Scroll down</span>
+                        <i class="uil uil-arrow-down home__scroll-arrow"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+
+        <!-----------------------QUALIFICATION------------------------>
+        <section class="qualification section" id="about">
+            <h2 class="section__title">Qualification</h2>
+            <span class="section__subtitle">My personal journey</span>
+
+            <div class="qualification__container container">
+                <div class="qualification__tabs">
+                    <div class="qualification__button button--flex qualification__active" data-target="#education">
+                        <i class="uil uil-graduation-cap qualification__icon"></i>
+                        Education
+                    </div>
+
+                    <div class="qualification__button button--flex" data-target="#work">
+                        <i class="uil uil-briefcase-alt qualification__icon"></i>
+                        Experience
+                    </div>
+                </div>
+
+                <div class="qualification__sections">
+                    <!-----------------------EDUCATION------------------------>
+                    <div class="qualification__content qualification__active" data-content id="education">
+                        <div class="qualification__data">
+                            <div>
+                                <h3 class="qualification__title">B.S. Computer Science</h3>
+                                <span class="qualification__subtitle">FAST NUCES – Lahore</span>
+                                <div class="qualification__calendar">
+                                    <i class="uil uil-calendar"></i>
+                                    Aug 2021 – Aug 2025
+                                </div>
+                            </div>
+                            <div>
+                                <span class="qualification__rounder"></span>
+                                <span class="qualification__line"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-----------------------WORK / EXPERIENCE------------------------>
+                    <div class="qualification__content" data-content id="work">
+                        <!-- 1 -->
+                        <div class="qualification__data">
+                            <div></div>
+                            <div>
+                                <span class="qualification__rounder"></span>
+                                <span class="qualification__line"></span>
+                            </div>
+                            <div>
+                                <h3 class="qualification__title">IoT Device Detection & Cyber Attack Prevention</h3>
+                                <span class="qualification__subtitle">Ebryx (Project)</span>
+                                <div class="qualification__calendar">
+                                    <i class="uil uil-calendar"></i>
+                                    2024 – 2025
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2 -->
+                        <div class="qualification__data">
+                            <div>
+                                <h3 class="qualification__title">WordPress Security & SEO (Freelance)</h3>
+                                <span class="qualification__subtitle">Google Cloud / AWS / Azure</span>
+                                <div class="qualification__calendar">
+                                    <i class="uil uil-calendar"></i>
+                                    2022 – 2025
+                                </div>
+                            </div>
+                            <div>
+                                <span class="qualification__rounder"></span>
+                                <span class="qualification__line"></span>
+                            </div>
+                        </div>
+
+                        <!-- 3 -->
+                        <div class="qualification__data">
+                            <div></div>
+                            <div>
+                                <span class="qualification__rounder"></span>
+                                <span class="qualification__line"></span>
+                            </div>
+                            <div>
+                                <h3 class="qualification__title">Fake News Detection (BERT + Knowledge Graphs)</h3>
+                                <span class="qualification__subtitle">Research Project</span>
+                                <div class="qualification__calendar">
+                                    <i class="uil uil-calendar"></i>
+                                    2025
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4 -->
+                        <div class="qualification__data">
+                            <div>
+                                <h3 class="qualification__title">TechNest – E‑Commerce Web App</h3>
+                                <span class="qualification__subtitle">Personal Project</span>
+                                <div class="qualification__calendar">
+                                    <i class="uil uil-calendar"></i>
+                                    2025
+                                </div>
+                            </div>
+                            <div>
+                                <span class="qualification__rounder"></span>
+                                <span class="qualification__line"></span>
+                            </div>
+                        </div>
+
+                        <!-- 5 -->
+                        <div class="qualification__data">
+                            <div></div>
+                            <div>
+                                <span class="qualification__rounder"></span>
+                                <span class="qualification__line"></span>
+                            </div>
+                            <div>
+                                <h3 class="qualification__title">Subscription Task Exchange App</h3>
+                                <span class="qualification__subtitle">Android • Firebase</span>
+                                <div class="qualification__calendar">
+                                    <i class="uil uil-calendar"></i>
+                                    2025
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-----------------------PORTFOLIO------------------------>
+        <section class="portfolio section" id="portfolio">
+            <h2 class="section__title">Projects</h2>
+            <span class="section__subtitle">Most recent work</span>
+
+            <div class="portfolio__container container swiper-container">
+                <div class="swiper-wrapper">
+                    <!-- IoT Security -->
+                    <div class="portfolio__content grid swiper-slide">
+                        <div class="video-container portfolio__media">
+                            <iframe src="https://drive.google.com/file/d/1wmuAY6JQZcHrWxbYa0A3dKOLrvou6Ymj/preview"
+                                title="IoT Security Dashboard demo" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"
+                                referrerpolicy="strict-origin-when-cross-origin">
+                            </iframe>
+                        </div>
+                        <div class="portfolio__data">
+                            <h3 class="portfolio__title">IoT Device Detection & Cyber Attack Prevention</h3>
+                            <p class="portfolio__description">
+                                A real-time platform that classifies IoT vs. non-IoT devices and detects malicious traffic by analyzing network packets.
+                                It processes over 10,000 packets per second through Kafka pipelines into Python ML models (XGBoost, Random Forest),
+                                achieving 92%+ accuracy while reducing latency and false positives.
+                            </p>
+                            <a href="#" target="_blank" class="button button--flex button--small portfolio__button"
+                                rel="noopener">
+                                Demo
+                                <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Fake News Detection -->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="assets/img/fake-news-detection-demo.gif" alt="Fake news detection app demo GIF" class="portfolio__img" />
+
+                        <div class="portfolio__data">
+                            <h3 class="portfolio__title">Fake News Detection (BERT + Knowledge Graphs)</h3>
+                            <p class="portfolio__description">
+                                Hybrid BERT classifier (F1 88%) fused with Wikidata/DBpedia graph checks. +12% accuracy
+                                over baseline, +15% factual consistency. Flask/Streamlit interface.
+                            </p>
+                            <a href="#" target="_blank" class="button button--flex button--small portfolio__button"
+                                rel="noopener">
+                                Demo
+                                <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- TechNest -->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="assets/img/technest-screenshot.png" alt="TechNest e-commerce app screenshot" class="portfolio__img"
+                            loading="lazy" />
+                            
+                        <div class="portfolio__data">
+                            <h3 class="portfolio__title">TechNest – E‑Commerce Web App</h3>
+                            <p class="portfolio__description">
+                                React + Redux Toolkit + Tailwind. 500+ products, advanced filters, auth, wishlist, dark
+                                mode, admin analytics; simulated payments & order tracking.
+                            </p>
+                            <a href="https://technest-ecommerce-rosy.vercel.app/shop" target="_blank"
+                                class="button button--flex button--small portfolio__button" rel="noopener">
+                                Demo
+                                <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+
+
+                        </div>
+                    </div>
+
+                    <!-- Android Subscription App -->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="assets/img/subscription-app.png"
+                            alt="Android subscription task exchange app screenshot" class="portfolio__img" />
+                        <div class="portfolio__data">
+                            <h3 class="portfolio__title">Subscription Task Exchange App</h3>
+                            <p class="portfolio__description">
+                                Android app with 3 roles (Content Creator/Watcher/Admin). Firebase Auth + Realtime DB. (Team Project).
+                                Made in Java.
+                            </p>
+                            <a href="https://github.com/bilal-os/Youtuber-Application" target="_blank" class="button button--flex button--small portfolio__button"
+                                rel="noopener">
+                                Demo
+                                <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- add arrows -->
+                <div class="swiper-button-next">
+                    <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
+                </div>
+                <div class="swiper-button-prev">
+                    <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
+                </div>
+                <!-- add pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <!-----------------------CONTACT ME ------------------------>
+        <section class="contact section" id="contact">
+            <h2 class="section__title">Contact Me</h2>
+            <span class="section__subtitle">Get in touch</span>
+
+            <div class="contact__container container grid">
+                <div>
+                    <div class="contact__information">
+                        <i class="uil uil-envelope contact__icon" aria-hidden="true"></i>
+                        <div>
+                            <h3 class="contact__title">Email</h3>
+                            <a class="contact__subtitle" href="mailto:zakiqasim100@gmail.com">zakiqasim100@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact__information">
+                        <i class="uil uil-map-marker contact__icon" aria-hidden="true"></i>
+                        <div>
+                            <h3 class="contact__title">Location</h3>
+                            <span class="contact__subtitle">Manhattan, New York</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact form (static). To enable submissions use Formspree or a backend) -->
+                <form action="" class="contact__form grid" aria-label="Contact form (disabled)">
+                    <div class="contact__inputs grid">
+                        <div class="contact__content">
+                            <label for="contact-name" class="contact__label">Name</label>
+                            <input id="contact-name" type="text" class="contact__input" />
+                        </div>
+                        <div class="contact__content">
+                            <label for="contact-email" class="contact__label">Email</label>
+                            <input id="contact-email" type="email" class="contact__input" />
+                        </div>
+                    </div>
+                    <div class="contact__content">
+                        <label for="contact-message" class="contact__label">Message</label>
+                        <textarea id="contact-message" cols="0" rows="6" class="contact__input"></textarea>
+                    </div>
+
+                    <div>
+                        <a href="#" class="button button--flex" aria-disabled="true">
+                            Send Message
+                            <i class="uil uil-message button__icon"></i>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- --------------------------  FOOTER  ------------------------ -->
+    <footer class="footer">
+        <div class="footer__bg">
+            <div class="footer__container container grid">
+                <div>
+                    <h1 class="footer__title">Zaki</h1>
+                    <span class="footer__subtitle">FAST NUCES</span>
+                    <span class="footer__subtitle">Class of 2025</span>
+                </div>
+
+                <ul class="footer__links">
+                    <li><a href="#about" class="footer__link">About</a></li>
+                    <li><a href="#portfolio" class="footer__link">Projects</a></li>
+                    <li><a href="#contact" class="footer__link">Contact Me</a></li>
+                </ul>
+
+                <div class="footer__socials">
+                    <a href="https://www.linkedin.com/in/zakiqasim" target="_blank" class="footer__social"
+                        aria-label="LinkedIn"><i class="uil uil-linkedin-alt"></i></a>
+                    <a href="https://github.com/zakiqasim100" target="_blank" class="footer__social"
+                        aria-label="GitHub"><i class="uil uil-github-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- --------------------------SCROLL TOP  ------------------------ -->
+    <a href="#" class="scrollup" id="scroll-up" aria-label="Scroll to top"><i
+            class="uil uil-arrow-up scrollup__icon"></i></a>
+
+    <!-- --------------------------SWIPER JS  ------------------------ -->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+
+    <!-- --------------------------MAIN JS  ------------------------ -->
+    <script src="assets/js/main.js"></script>
+
+
+    <script>
+        (function () {
+            const box = document.getElementById('typewriter');
+            if (!box) return;
+
+            const cursor = box.nextElementSibling;
+            const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            const text = "Computer Science Graduate at FAST-NUCES. I have a strong interest in software engineering, particularly in AI/ML and backend development.";
+
+            if (reduced) {
+                box.textContent = text;
+                return;
+            }
+
+            let i = 0, typing = true;
+            // fast but human-readable
+            const TYPE_CHUNK = 2;          // chars per tick (instead of 3–5)
+            const ERASE_CHUNK = 2;         // chars per tick
+            const TYPE_INTERVAL = 20;      // ms between ticks (slower than 10)
+            const ERASE_INTERVAL = 25;     // ms between erase ticks
+            const PAUSE_AFTER_TYPE = 2500; // pause with cursor blinking
+            const PAUSE_BEFORE_TYPE = 400; // pause before typing again
+
+            function tick() {
+                if (typing) {
+                    const next = Math.min(i + TYPE_CHUNK, text.length);
+                    box.append(text.slice(i, next));
+                    i = next;
+
+                    if (i < text.length) {
+                        setTimeout(tick, TYPE_INTERVAL);
+                    } else {
+                        typing = false;
+                        setTimeout(tick, PAUSE_AFTER_TYPE);
+                    }
+                } else {
+                    if (i > 0) {
+                        i = Math.max(0, i - ERASE_CHUNK);
+                        box.textContent = text.slice(0, i);
+                        setTimeout(tick, ERASE_INTERVAL);
+                    } else {
+                        typing = true;
+                        setTimeout(tick, PAUSE_BEFORE_TYPE);
+                    }
+                }
+            }
+
+
+            // start with empty content
+            box.textContent = "";
+            tick();
+        })();
+    </script>
+
+</body>
+
+</html>
