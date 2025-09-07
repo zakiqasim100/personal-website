@@ -1,0 +1,21 @@
+name: Test IONOS SFTP connection
+
+on:
+  workflow_dispatch:  # runs only when you click "Run workflow"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create a small marker file
+        run: echo "ci-ok $(date -u +%FT%TZ)" > ci-ok.txt
+
+      - name: Upload marker to /htdocs (test only)
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          server: ${{ secrets.IONOS_HOST }}
+          username: ${{ secrets.IONOS_USER }}
+          password: ${{ secrets.IONOS_PASSWORD }}
+          local_path: ./ci-ok.txt
+          remote_path: /htdocs
+          sftpArgs: "-o StrictHostKeyChecking=no"
